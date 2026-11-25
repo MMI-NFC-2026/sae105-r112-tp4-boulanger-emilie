@@ -9,7 +9,7 @@
   max-width: 900px;
 }
 
-.accordeon details {
+.accordeon > details {
   width: 102px;
   height: 77px;
   overflow: hidden;
@@ -19,45 +19,60 @@
   transition: width 0.3s ease;
 }
 
-.accordeon details[open] {
+.accordeon > details[open] {
   display: flex;
   width: 360px;
-  height: 77px;
 }
 
-.accordeon summary {
+.accordeon > details > summary {
+  position: relative;
+  flex: 0 0 102px;
   width: 102px;
+  height: 77px;
   cursor: pointer;
   list-style: none;
 }
 
-.accordeon summary::-webkit-details-marker,
-.accordeon summary::marker {
+.accordeon > details > summary::marker,
+.accordeon > details > summary::-webkit-details-marker {
   display: none;
 }
 
-.accordeon summary img {
+.accordeon > details > summary::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid #fff;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.accordeon > details[open] > summary::after {
+  border-top: 0;
+  border-bottom: 9px solid #fff;
+}
+
+.accordeon > details > summary img {
   display: block;
   width: 102px;
   height: 77px;
   object-fit: cover;
 }
 
-.accordeon details[open] > summary {
-  flex: 0 0 102px;
-}
-
-.accordeon details[open] > div {
+.accordeon > details[open] > div {
   flex: 1;
   padding: 10px 12px;
-  border-top: 0;
   border-left: 1px solid #ddd;
 }
 
-.accordeon details[open] h3 {
+.accordeon > details[open] h3 {
   margin: 0 0 6px;
 }
 
-.accordeon details[open] p {
+.accordeon > details[open] p {
   margin: 0;
 }
