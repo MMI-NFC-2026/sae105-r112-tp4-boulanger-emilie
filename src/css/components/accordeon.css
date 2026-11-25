@@ -1,3 +1,83 @@
 /**
 * Accordeon
 */
+
+.accordeon {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 460px;
+}
+
+.accordeon details {
+  display: flex;
+  width: 102px;
+  height: 77px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.accordeon details[open] {
+  width: 360px;
+}
+
+.accordeon > details > summary {
+  position: relative;
+  flex: 0 0 102px;
+  width: 102px;
+  height: 77px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordeon > details > summary::marker,
+.accordeon > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordeon summary img {
+  display: block;
+  width: 102px;
+  height: 77px;
+  object-fit: cover;
+}
+
+.accordeon summary::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 6px;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid #fff;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.accordeon details[open] summary::after {
+  border-top: 0;
+  border-bottom: 9px solid #fff;
+}
+
+.accordeon details[open] > div {
+  flex: 1;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-left: 1px solid #ccc;
+}
+
+.accordeon h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+.accordeon p {
+  margin: 0;
+  font-size: 14px;
+}
