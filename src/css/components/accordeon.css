@@ -9,23 +9,22 @@
   max-width: 900px;
 }
 
-.accordeon > details {
+.accordeon details {
+  display: flex;
   width: 102px;
   height: 77px;
   overflow: hidden;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 4px;
   background: #fff;
   transition: width 0.3s ease;
 }
 
-.accordeon > details[open] {
-  display: flex;
+.accordeon details[open] {
   width: 360px;
 }
 
-.accordeon > details > summary {
-  position: relative;
+.accordeon summary {
   flex: 0 0 102px;
   width: 102px;
   height: 77px;
@@ -33,46 +32,31 @@
   list-style: none;
 }
 
-.accordeon > details > summary::marker,
-.accordeon > details > summary::-webkit-details-marker {
+.accordeon summary::-webkit-details-marker,
+.accordeon summary::marker {
   display: none;
 }
 
-.accordeon > details > summary::after {
-  content: "";
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 9px solid #fff;
-  filter: drop-shadow(0 0 1px #000);
-}
-
-.accordeon > details[open] > summary::after {
-  border-top: 0;
-  border-bottom: 9px solid #fff;
-}
-
-.accordeon > details > summary img {
+.accordeon summary img {
   display: block;
   width: 102px;
   height: 77px;
   object-fit: cover;
 }
 
-.accordeon > details[open] > div {
+.accordeon details[open] > div {
   flex: 1;
-  padding: 10px 12px;
-  border-left: 1px solid #ddd;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-left: 1px solid #ccc;
 }
 
-.accordeon > details[open] h3 {
+.accordeon h3 {
   margin: 0 0 6px;
+  font-size: 18px;
 }
 
-.accordeon > details[open] p {
+.accordeon p {
   margin: 0;
+  font-size: 14px;
 }
